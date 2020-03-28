@@ -1,0 +1,333 @@
+/*
+File Name: style.less
+Date: 12/01/18
+Programmer: Illya King
+*/
+
+@import 'palette.less';
+@import 'mixins.less';
+
+/* colors from https://color.adobe.com/create/color-wheel */
+
+/*
+CHANGES DONE:
+- Added Hamburger Code
+- Update Background
+- Remove some mixins to css
+- Similar css elements moved to mixins
+- Reverse header and menu colors for window size
+- Modifed menu colors
+- Modified and added new params
+- Clean up code
+- Deleted menuFixer mixin
+- Elimated CSS which is referenced in reset.css
+- Remove OL text style from reset.css
+- Adjusted header texts
+- Added Material
+- Added Styling for Contact Form
+- Added Mixin for Submit Button
+*/
+
+/* MOBILE STYLESHEET */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: auto;
+    a {
+        text-decoration: none;
+    }
+}
+
+header {
+    .headerGradient(linear-gradient(rgba(0,0,0, .6), rgba(0,0,0, .3), rgba(0,0,0, .6)), url(../images/desert_bg.png));
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 480px auto;
+    line-height: 4em;
+    margin: 0;
+    padding: 10px 5px 0px 10px;
+    h1 {
+        text-align: center;
+        .textShadow(0px 0px 10px @darkColor);
+    }
+}
+
+nav {
+    background-color: @darkColor;
+}
+
+main {
+    background-color: @lightColor;
+    padding-bottom: 10px;
+    h2 {
+        background: url(../images/paws.png) no-repeat;
+        font-weight: bold;
+        margin: 10px 5px 5px 10px;
+        padding:0 0 0 30px
+    }
+    p {
+        line-height: 1.25em;
+        margin: 5px 10px;
+    }
+    img {
+        margin: 5px 10px;
+        .borderBoi;
+    }
+    .hero {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+    }
+    .imageCenter {
+        display: block;
+        margin: 0 auto;
+        width: 95%;
+        height: auto;
+    }
+    .proper {
+    font-style:italic;
+    font-weight: 500;
+    }
+
+    .sideRightImage {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        clear:both;
+    }
+}
+
+footer {
+    color: @lightColor;
+    height: 125px;
+    padding: 20px 10px;
+    .gradientBackground(linear-gradient(@darkColor, @greyColor5));
+    ul{
+        margin: 5px 0;
+        li {
+            display: inline-block;
+            a {
+                &:link {
+                    color: @color2;
+                }
+                &:visited {
+                    color: @color2;
+                }
+                &:hover {
+                    color: @greyColor2;
+                }
+            }
+        }
+    }
+}
+
+h1 {
+  .headingStyle('Freckle Face', cursive; @lightColor1; 2em;);
+}
+
+h2 {
+  .headingStyle('Freckle Face', cursive; @darkColor2; 1.75em;);
+}
+
+h3 {
+  .headingStyle('Freckle Face', cursive; @darkColor3; 1.5em);
+}
+
+h4 {
+  .headingStyle(sans-serif; @color4; .9em);
+}
+
+h5 {
+  .headingStyle(sans-serif; @color2; .85em);
+}
+
+h6 {
+  .headingStyle('Freckle Face', cursive; @lightColor; 1.25em);
+}
+
+.copyright {
+    font-size: .85em;
+    font-style: italic;
+    text-align: center;
+}
+
+.social {
+    font-size: 2em;
+}
+
+/* Credits */
+
+.credits {
+    background-color: @lightColor1;
+    border: 1px solid @darkColor3;
+    border-top: 10px solid @darkColor3;
+    margin: auto;
+    padding: 5px 10px;
+    width: 95%;
+    .borderBoi;
+    ol {
+        margin-left: 20px;
+        li {
+            a{
+                &:link {
+                    color: @color5;
+                    text-decoration: underline;
+                }
+                &:hover {
+                    color: @color4;
+                }
+            }
+        }
+    }
+}
+
+/* Hamburger Menu */
+.respond {
+    background-color: @darkColor;
+}
+
+.hamburger {
+    font-size:1.4em;
+    padding: 0 15px 0;
+    .hamburgerHelper;
+}
+
+.cross {
+    top:0;
+    right:0;
+    font-size:3em;
+    padding: 5px 15px 0;
+    .hamburgerHelper;
+}
+
+.menu {
+    z-index:10;
+    text-align:left;
+    ul {
+        padding-bottom: 10px;
+        li {
+            line-height: 1.5em;
+            padding: 5px;
+            a {
+                background-color: @color2;
+                border: 1px solid @darkColor2;
+                color: @lightColor;
+                font-weight: bold;
+                padding:5px 10px;
+                .borderBoi;
+                &:hover {
+                    background: @lightColor1;
+                    color: @darkColor2;
+                }
+            }
+        }
+    }
+}
+
+/* STYLING FOR CONTACT FORM */
+.container {
+    padding: 20px;
+}
+
+input[type=text], textarea {
+    border: 1px solid @greyColor3;
+    margin: 6px 0 16px 0;
+    padding: 12px;
+    margin: 6px 0 16px 0; 
+    width: 100%;
+    .borderBoi;
+    box-shadow: none;
+}
+
+input[type=button] {
+    .button-creator(@darkColor3);
+    color: @lightColor;
+    padding: 12px 20px;
+}
+
+input[type=button]:active{
+    .button-creator(@color3);
+}
+
+/* STYLING FOR TABLET IN PORTRAIT */
+@media only screen and (min-width: 481px) {
+    
+    html {
+        .gradientBackground(radial-gradient(@lightColor, @lightColor1, @color1, @darkColor1));
+    }
+    
+    body {
+        background-image: url(../images/desert_bg.png);
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        font-size: 1em;
+    }
+    
+    header, nav, main, footer {
+        margin: auto;
+        max-width: 900px;
+    }
+    
+    header {
+        .headerGradient(linear-gradient(rgba(0,0,0, .7), rgba(0,0,0, .4), rgba(0,0,0, .7)), url(../images/West_African_male_lion.jpg));
+        height: 175px;
+        h1 {
+            font-size: 3em;
+            line-height: 175px;
+            .textShadow(0px 0px 15px @darkColor);
+        }
+    }
+    
+    nav {
+        .gradientBackground(linear-gradient(@color2, @darkColor2));
+        padding: 0;
+        ul {
+            li {
+                border-right: 1px solid @greyColor2;
+                display: inline-block; 
+                a {
+                    color: @lightColor;
+                    font-size: .75em;
+                    font-weight: bold;
+                    line-height: 30px;
+                    padding: 0 15px;
+                    text-transform: uppercase;
+                }
+                &:hover {
+                    background-color: @lightColor1;
+                    a {
+                        color: @darkColor2;
+                    }
+                }
+            }
+            li:not(:first-child) {
+                margin-left: -5px;
+            }
+        }
+    }
+    
+    footer {
+        background: none @darkColor;
+    }
+    
+    .respond {
+        display: none;
+    }
+    
+    .sideRightImage {
+        float: right;
+        margin-right: 10px;
+    }
+    
+}
+
+/* STYLING FOR DESKTOP IN LANDSCAPE*/
+@media only screen and (min-width: 768px) {
+    header {
+        h1 {
+            font-size: 4em;
+        }
+    }
+}

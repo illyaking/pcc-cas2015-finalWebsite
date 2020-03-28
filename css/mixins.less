@@ -1,0 +1,53 @@
+@import 'palette.less';
+/* Parametric mixin for headings */
+
+.headingStyle(@paramFamily; @paramColor; @paramSize) {
+    font-family: @paramFamily;
+    color: @paramColor; // this accepts a font color passed through as an argument
+    font-size: @paramSize; // this accepts a font size passed through as an argument
+    font-weight: bold; // this is static code... not everything has to be dynamic! 
+}
+
+/* End parametric mixin for headings */
+
+.gradientBackground(@paramBackground) {
+    background-image: @paramBackground;
+}
+
+.headerGradient(@paramHeaderGradient, @paramURL) {
+    background: @paramHeaderGradient, @paramURL;
+}
+
+.textShadow(@paramTextShadow) {
+    text-shadow: @paramTextShadow;
+}
+
+.borderBoi  {
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.7);
+}
+
+.button-creator(@paramColor) {
+    background: @paramColor;
+    border-radius: 5px;
+    box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:active {
+        box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.7);
+        position: relative;
+        top: 2px
+    }
+}
+
+.hamburgerHelper {
+  background:@darkColor;
+  border:0;
+  color:@lightColor2;
+  font-weight:700;
+  line-height:40px;
+  cursor:pointer;
+  outline:none;
+  z-index:10;
+}
